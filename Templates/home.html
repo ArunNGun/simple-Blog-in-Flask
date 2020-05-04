@@ -1,0 +1,36 @@
+{%extends "base.html"%}
+
+    {%block title%}
+        ABlog
+    {%endblock%}
+
+{%block body%}
+<div><br>
+    <h1 style="display:inline">All Posts</h1>
+    <a style="display:inline" class=" btn btn-success float-right" href="/newpost">+ New Post</a>
+</div>
+<br>
+
+<hr>
+{% for post in posts%}
+<div class="row mb-2">
+    <div class="col-md-12">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-1 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <h3 class="mb-0">{{ post.title}}</h3>
+                <div class="mb-1 text-muted">Posted by: {{post.author}} on {{post.date_posted}}</div>
+                <br><p class="card-text mb-auto">{{post.article}}</p>
+
+            </div>
+
+        </div>
+        <a class="btn btn-outline-danger mb-3" href="/deleteblog/{{post.id}}" role="button"> Delete x</a>
+
+    </div>
+</div>
+{%endfor%}
+
+
+
+
+{%endblock%}

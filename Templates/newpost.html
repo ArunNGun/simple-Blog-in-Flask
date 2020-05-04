@@ -1,0 +1,31 @@
+{%extends "base.html"%}
+
+    {%block title%}
+        New Post
+    {%endblock%}
+
+{%block body%}
+<br>
+<h1>New Post</h1>
+{%if author!=''%}
+<small>Login success {{author}} ;)</small>
+{%endif%}
+<hr>
+<form class="" action="newblog" method="POST">
+    <label for="author">Author:{{author}}</label>
+    {%if author==''%}
+    <input class="form-control" type="text" name ="author" id="author" placeholder="Author" aria-label="Author">
+    {%else%}
+    <input class="form-control" type="text" name ="author" id="author" value="{{author}}" aria-label="Author">
+    {%endif%}
+    <label for="title">Title:</label>
+    <input class="form-control" type="text" name="title" id="title" placeholder="Enter Title" aria-label="Title">
+    <label for="article">Article:</label>
+    <textarea class="form-control" name="article" id="article" rows="3" ></textarea>
+    <br>
+    <input class="btn btn-success" type="submit" value="submit">
+</form>
+<hr>
+
+
+{%endblock%}
